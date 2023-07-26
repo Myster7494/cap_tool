@@ -1,0 +1,49 @@
+<!-- Copyright 2000-2023 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+
+<idea-plugin>
+
+    <!-- Unique id for this plugin. Must stay constant for the life of the plugin. -->
+    <id>me.myster.cap.tool</id>
+
+    <!-- Text to display as name on Settings | Plugin page -->
+    <name>Cap-Countdown Tool</name>
+
+    <!-- Indicate this plugin can be loaded in all IntelliJ Platform-based products. -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Text to display as description on Settings | Plugin page -->
+    <description>
+        <![CDATA[
+      Demonstrates implementing Action and Action Group patterns.<br> Adds entries to the Tools menu.
+    ]]>
+    </description>
+
+    <!-- Text to display as company information on Settings | Plugin page -->
+    <vendor url="https://github.com/jackychiu0207">Myster</vendor>
+
+    <!-- Declare the default resource location for localizing menu strings -->
+    <resource-bundle>messages.BasicActionsBundle</resource-bundle>
+
+    <actions>
+        <!--
+          See https://plugins.jetbrains.com/docs/intellij/basic-action-system.html#registering-actions
+          for information about the elements and attributes used for actions and groups.
+
+          This <action> element adds a static menu item in first position of the Tools menu that shows PopupDialogAction.
+          Note this element has no text or description attributes because translations for them are given
+          by action-id in the resource-bundle.
+          An <override-text> element is also used for demonstration purposes to show alternate text and description strings
+          for this action's entries in the MainMenu. (Which includes the ToolsMenu. Try commenting out the override-text
+          element and see how the menu text changes.) The alternate text and description attributes do not
+          appear here because they are defined by action-id in the resource-bundle.
+        -->
+        <action id="me.myster.cap.tool.LatexFormatPopupDialogAction"
+                class="me.myster.cap.tool.LatexFormatPopupDialogAction"
+                text="Latex Format" description="Latex format"
+                icon="SdkIcons.Sdk_default_icon">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+
+</idea-plugin>
